@@ -12,7 +12,15 @@
     tools:context="com.letzunite.applabs.MainActivity">
 
     <TextView
+        android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"/>
+        android:text="Hello LetzUnite!"/>
+
+    <fragment
+        android:id="@+id/frag_login"
+        android:name="com.letzunite.applabs.LoginFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_title"/>
 </RelativeLayout>

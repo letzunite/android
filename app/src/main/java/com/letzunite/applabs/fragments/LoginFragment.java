@@ -11,15 +11,23 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.letzunite.applabs.R;
+import com.letzunite.applabs.constants.Config;
+import com.letzunite.applabs.logger.Logger;
+import com.letzunite.applabs.logger.LoggerEnable;
 
 public class LoginFragment extends Fragment implements View.OnClickListener {
+
+    // For Logging
+    private final LoggerEnable CLASS_NAME = LoggerEnable.GetHttpURLConnection;
 
     private View currentView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        // Try to append strings by comma not by + operator. As, it will create many string objects in
+        // string pool.
+        Logger.logD(Config.TAG, CLASS_NAME, " >> onCreate ", " >> onCreate");
     }
 
     @Override
@@ -30,7 +38,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
             currentView = inflater.inflate(R.layout.fragment_login_fragment, container, false);
             setDefaultViews();
             setListeners();
-            setDeaultValues();
+            setDefaultValues();
         } catch (Exception e) {
 
         }
@@ -47,7 +55,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         super.onDetach();
     }
 
-    private void setDeaultValues() {
+    private void setDefaultValues() {
 
     }
 
@@ -73,7 +81,6 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                     currentView.findViewById(R.id.tv_signup).setVisibility(View.GONE);
                     ((Button) currentView.findViewById(R.id.btn_login)).setText(getResources().getString(R.string.Register_str));
                     break;
-
                 case R.id.tv_signin:
                     currentView.findViewById(R.id.et_confirm_password).setVisibility(View.GONE);
                     currentView.findViewById(R.id.tv_signin).setVisibility(View.GONE);

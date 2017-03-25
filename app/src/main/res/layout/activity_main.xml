@@ -18,8 +18,8 @@
         android:text="Hello LetzUnite!"/>
 
     <fragment
-        android:id="@+id/frag_login"
-        android:name="com.letzunite.applabs.LoginFragment"
+        android:id="@+id/social_login"
+        android:name="com.letzunite.applabs.fragments.SocialFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_title"/>

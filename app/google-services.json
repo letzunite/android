@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "572846392310",
+    "project_id": "firebase-letzunite"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:572846392310:android:c1b20c125ba509fd",
+        "android_client_info": {
+          "package_name": "com.letzunite.applabs"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "572846392310-df6u2gdq1q8t6befuqo9plvb3j9gjm8k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.letzunite.applabs",
+            "certificate_hash": "d21f7e64b8b84ce4994eda6be7aa3eeedd9b6a39"
+          }
+        },
+        {
+          "client_id": "572846392310-3j97qsf826u49cu1eb7a45ur7j1rdpg3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwMcIRMej7EEYkHPANRuSXx9cLyHMRxag"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,87 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context="com.letzunite.applabs.fragments.SocialFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp">
+
+            <TextView
+                android:id="@+id/tv_frag_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/hello_blank_fragment"/>
+
+            <com.facebook.login.widget.LoginButton
+                android:id="@+id/login_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_frag_title"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"/>
+
+            <TextView
+                android:id="@+id/tv_fb_profile_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/login_button"
+                android:layout_marginTop="5dp"/>
+
+            <ImageView
+                android:id="@+id/iv_fb_profile_pic"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_below="@id/tv_fb_profile_info"
+                android:layout_marginTop="5dp"/>
+
+            <View
+                android:id="@+id/social_separator"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/iv_fb_profile_pic"
+                android:layout_margin="10dp"
+                android:background="#577823"/>
+
+            <com.google.android.gms.common.SignInButton
+                android:id="@+id/sign_in_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/social_separator"
+                android:visibility="visible"
+                />
+
+            <Button
+                android:id="@+id/sign_out_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/social_separator"
+                android:layout_toRightOf="@id/sign_in_button"
+                android:text="SignOut 4m Google"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/tv_google_profile_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/sign_out_button"
+                android:layout_marginTop="5dp"/>
+
+            <ImageView
+                android:id="@+id/iv_google_profile_pic"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_below="@id/tv_google_profile_info"
+                android:layout_marginTop="5dp"/>
+        </RelativeLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

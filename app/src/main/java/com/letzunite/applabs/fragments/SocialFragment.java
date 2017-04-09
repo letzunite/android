@@ -81,6 +81,8 @@ public class SocialFragment extends Fragment implements GoogleApiClient.OnConnec
         // Configure sign-in to request the user's ID, email address, and basic
         // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestProfile()
+                .requestIdToken(getString(R.string.google_server_client_id))
                 .requestEmail()
                 .build();
 
@@ -205,8 +207,9 @@ public class SocialFragment extends Fragment implements GoogleApiClient.OnConnec
     private void handleGoogleSignInResult(GoogleSignInResult result) {
         Log.d(Config.TAG, "handleSignInResult:" + result.isSuccess());
         if (result.isSuccess()) {
-            // Signed in successfully, show authenticated UI.
             GoogleSignInAccount acct = result.getSignInAccount();
+
+            // Signed in successfully, show authenticated UI.
             processGoogleResponse(acct);
             updateUI(true);
         } else {
@@ -217,8 +220,12 @@ public class SocialFragment extends Fragment implements GoogleApiClient.OnConnec
 
     private void processGoogleResponse(GoogleSignInAccount account) {
         StringBuilder tempProfile = new StringBuilder();
+        // If Reqd, send token to Server
+        Log.d("LetzUnite", "ID Token: " + account.getIdToken());
         tempProfile.append("Id: ").append(account.getId())
-                .append("\nName: ").append(account.getDisplayName());
+                .append("Token: ").append(account.getIdToken())
+                .append("\nFirstName: ").append(account.getGivenName())
+                .append("\nLastName: ").append(account.getFamilyName());
 
 //        if (account.get) {
 //            tempProfile.append("\nGender: " + data.getString("gender"));
@@ -226,13 +233,15 @@ public class SocialFragment extends Fragment implements GoogleApiClient.OnConnec
 //        if (data.has("birthday")) {
 //            tempProfile.append("\nBirthday: " + data.getString("birthday"));
 //        }
-        if (account.getEmail() != null && account.getEmail().isEmpty()) {
+        if (account.getEmail() != null) {
             tempProfile.append("\nEmail: " + account.getEmail());
         }
+
         tvGoogleProfile.setText(tempProfile);
 
         if (account.getPhotoUrl() != null) {
-            Glide.with(getApplicationContext()).load(account.getPhotoUrl())
+            Glide.with(getApplicationContext())
+                    .load(account.getPhotoUrl())
                     .thumbnail(0.5f)
                     .crossFade()
                     .diskCacheStrategy(DiskCacheStrategy.ALL)

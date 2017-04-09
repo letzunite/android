@@ -1,26 +1,26 @@
 package com.letzunite.applabs.fragments;
 
 import android.content.Context;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 
 import com.letzunite.applabs.R;
 import com.letzunite.applabs.constants.Config;
+import com.letzunite.applabs.constants.Fragments;
 import com.letzunite.applabs.logger.Logger;
 import com.letzunite.applabs.logger.LoggerEnable;
 
 public class LoginFragment extends Fragment implements View.OnClickListener {
 
     // For Logging
-    private final LoggerEnable CLASS_NAME = LoggerEnable.GetHttpURLConnection;
+    private final LoggerEnable CLASS_NAME = LoggerEnable.LoginFragment;
 
     private View currentView;
+    private IActivityFragmentInteraction listener;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -35,24 +35,14 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         try {
-            currentView = inflater.inflate(R.layout.fragment_login_fragment, container, false);
+            currentView = inflater.inflate(R.layout.fragment_login, container, false);
             setDefaultViews();
             setListeners();
             setDefaultValues();
         } catch (Exception e) {
-
+            e.printStackTrace();
         }
         return currentView;
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
     }
 
     private void setDefaultValues() {
@@ -60,13 +50,15 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
     }
 
     private void setDefaultViews() {
-        Typeface titleFont = Typeface.createFromAsset(getActivity().getAssets(), "fonts/bebas.ttf");
-        ((TextView) currentView.findViewById(R.id.tv_app_title)).setTypeface(titleFont);
+//        Typeface titleFont = Typeface.createFromAsset(getActivity().getAssets(), "fonts/bebas.ttf");
+//        ((TextView) currentView.findViewById(R.id.tv_app_title)).setTypeface(titleFont);
     }
 
     private void setListeners() {
-        currentView.findViewById(R.id.tv_signup).setOnClickListener(this);
-        currentView.findViewById(R.id.tv_signin).setOnClickListener(this);
+        currentView.findViewById(R.id.btn_login).setOnClickListener(this);
+        currentView.findViewById(R.id.btn_social).setOnClickListener(this);
+        currentView.findViewById(R.id.tv_sign_up).setOnClickListener(this);
+        currentView.findViewById(R.id.tv_sign_in).setOnClickListener(this);
     }
 
     @Override
@@ -74,25 +66,46 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         try {
             int id = v.getId();
             switch (id) {
-                case R.id.tv_signup:
-                    currentView.findViewById(R.id.et_confirm_password).setVisibility(View.VISIBLE);
-                    currentView.findViewById(R.id.tv_signin).setVisibility(View.VISIBLE);
+                case R.id.btn_login:
+                case R.id.tv_sign_up:
+                    currentView.findViewById(R.id.til_confirm_password).setVisibility(View.VISIBLE);
+                    currentView.findViewById(R.id.tv_sign_in).setVisibility(View.VISIBLE);
                     currentView.findViewById(R.id.tv_forgot_password).setVisibility(View.GONE);
-                    currentView.findViewById(R.id.tv_signup).setVisibility(View.GONE);
+                    currentView.findViewById(R.id.tv_sign_up).setVisibility(View.GONE);
                     ((Button) currentView.findViewById(R.id.btn_login)).setText(getResources().getString(R.string.Register_str));
                     break;
-                case R.id.tv_signin:
-                    currentView.findViewById(R.id.et_confirm_password).setVisibility(View.GONE);
-                    currentView.findViewById(R.id.tv_signin).setVisibility(View.GONE);
+                case R.id.tv_sign_in:
+                    currentView.findViewById(R.id.til_confirm_password).setVisibility(View.GONE);
+                    currentView.findViewById(R.id.tv_sign_in).setVisibility(View.GONE);
                     currentView.findViewById(R.id.tv_forgot_password).setVisibility(View.VISIBLE);
-                    currentView.findViewById(R.id.tv_signup).setVisibility(View.VISIBLE);
+                    currentView.findViewById(R.id.tv_sign_up).setVisibility(View.VISIBLE);
                     ((Button) currentView.findViewById(R.id.btn_login)).setText(getResources().getString(R.string.login_str));
                     break;
-
+                case R.id.btn_social:
+                    listener.onInteraction(Fragments.LOGIN_FRAGMENT, v, null);
+                    break;
                 default:
                     break;
             }
         } catch (Exception e) {
+            e.printStackTrace();
         }
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof IActivityFragmentInteraction) {
+            listener = (IActivityFragmentInteraction) context;
+        } else {
+            throw new ClassCastException(context.toString()
+                    + " must implement IActivityFragmentInteraction");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        listener = null;
     }
 }

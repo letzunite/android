@@ -14,7 +14,7 @@ public enum LoggerEnable implements ILoggerActivator {
     },
     LoginFragment {
         public boolean isEnabled() {
-            return false;
+            return true;
         }
     },
     OTPFragment {

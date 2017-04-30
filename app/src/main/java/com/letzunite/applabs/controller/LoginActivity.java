@@ -1,5 +1,6 @@
-package com.letzunite.applabs;
+package com.letzunite.applabs.controller;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -7,20 +8,18 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.facebook.FacebookSdk;
+import com.letzunite.applabs.R;
 import com.letzunite.applabs.constants.Fragments;
 import com.letzunite.applabs.fragments.IActivityFragmentInteraction;
 import com.letzunite.applabs.fragments.LoginFragment;
-import com.letzunite.applabs.fragments.SocialFragment;
 import com.letzunite.applabs.utils.AppUtils;
 
-public class MainActivity extends AppCompatActivity implements IActivityFragmentInteraction {
+public class LoginActivity extends AppCompatActivity implements IActivityFragmentInteraction {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        FacebookSdk.sdkInitialize(getApplicationContext());
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
         addReplaceFragment(null, new LoginFragment(), false, false, null);
     }
 
@@ -54,19 +53,9 @@ public class MainActivity extends AppCompatActivity implements IActivityFragment
     public void onInteraction(Fragments fragments, View v, Bundle bundle) {
         switch (fragments) {
             case LOGIN_FRAGMENT:
-//                if (null != b) {
-//                    storeListBean = (StoreListBean) b.getSerializable(KeyConstants.STORE_LIST_EXTRA);
-//                }
-//                nextFragment = new StoreFragment();
-                addReplaceFragment(fragments.name(), new SocialFragment(), false, true, null);
+                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                finish();
                 break;
-//            case STORE_FRAGMENT:
-//                if (null != b) {
-//                    storeBean = (StoreBean) b.getSerializable(KeyConstants.STORE_DETAILS_EXTRA);
-//                }
-//                nextFragment = new ElementListFragment();
-//                addReplaceFragment(fragments.name(), nextFragment, true, true, b);
-//                break;
         }
     }
 }

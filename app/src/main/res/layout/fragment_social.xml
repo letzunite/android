@@ -21,7 +21,7 @@
                 android:text="@string/hello_blank_fragment"/>
 
             <com.facebook.login.widget.LoginButton
-                android:id="@+id/login_button"
+                android:id="@+id/btn_fb_sign_in"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_frag_title"
@@ -32,7 +32,7 @@
                 android:id="@+id/tv_fb_profile_info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/login_button"
+                android:layout_below="@id/btn_fb_sign_in"
                 android:layout_marginTop="5dp"/>
 
             <ImageView
@@ -51,7 +51,7 @@
                 android:background="#577823"/>
 
             <com.google.android.gms.common.SignInButton
-                android:id="@+id/sign_in_button"
+                android:id="@+id/btn_google_sign_in"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/social_separator"
@@ -63,7 +63,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/social_separator"
-                android:layout_toRightOf="@id/sign_in_button"
+                android:layout_toRightOf="@id/btn_google_sign_in"
                 android:text="SignOut 4m Google"
                 android:visibility="gone"/>
 

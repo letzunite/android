@@ -113,7 +113,7 @@ public class SocialFragment extends Fragment implements GoogleApiClient.OnConnec
     private void initFacebookViews(View view) {
         // Facebook
         callbackManager = CallbackManager.Factory.create();
-        loginButton = (LoginButton) view.findViewById(R.id.login_button);
+        loginButton = (LoginButton) view.findViewById(R.id.btn_fb_sign_in);
         tvFbProfile = (TextView) view.findViewById(R.id.tv_fb_profile_info);
         ivFbProfilePic = (ImageView) view.findViewById(R.id.iv_fb_profile_pic);
         loginButton.setFragment(this);
@@ -154,7 +154,7 @@ public class SocialFragment extends Fragment implements GoogleApiClient.OnConnec
     private void initGoogleViews(View view) {
         // Google
         // Set the dimensions of the sign-in button.
-        btnSignIn = (SignInButton) view.findViewById(R.id.sign_in_button);
+        btnSignIn = (SignInButton) view.findViewById(R.id.btn_google_sign_in);
         btnSignIn.setSize(SignInButton.SIZE_ICON_ONLY);
         btnSignOut = (Button) view.findViewById(R.id.sign_out_button);
         btnSignIn.setOnClickListener(new View.OnClickListener() {

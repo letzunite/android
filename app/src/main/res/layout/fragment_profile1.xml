@@ -1,0 +1,130 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/french_rose_red"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context="com.letzunite.applabs.fragments.Profile1Fragment">
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/til_full_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/et_full_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ. "
+            android:hint="full name *"
+            android:imeOptions="actionNext"
+            android:inputType="textCapWords|textVisiblePassword"
+            android:maxLength="150"
+            android:maxLines="1"
+            android:nextFocusDown="@+id/et_mobile"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/til_mobile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/field_margin_top">
+
+        <EditText
+            android:id="@+id/et_mobile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:digits="1234567890"
+            android:hint="mobile number *"
+            android:imeOptions="actionNext"
+            android:inputType="phone"
+            android:maxLength="10"
+            android:maxLines="1"
+            android:nextFocusDown="@+id/cor_et_street_name"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/til_present_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/field_margin_top">
+
+        <EditText
+            android:id="@+id/et_present_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="present address *"
+            android:imeOptions="actionNext"
+            android:inputType="textCapWords|textVisiblePassword"
+            android:maxLength="100"
+            android:maxLines="3"
+            android:nextFocusDown="@+id/et_pincode"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/til_pincode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/til_present_address"
+        android:layout_marginTop="@dimen/field_margin_top">
+
+        <EditText
+            android:id="@+id/et_pincode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:digits="1234567890"
+            android:hint="pin *"
+            android:inputType="number"
+            android:maxLength="6"
+            android:maxLines="1"
+            android:nextFocusDown="@+id/et_state"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/til_state"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/til_present_address"
+        android:layout_marginTop="@dimen/field_margin_top">
+
+        <EditText
+            android:id="@+id/et_state"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+            android:hint="state *"
+            android:inputType="textCapWords|textVisiblePassword"
+            android:maxLength="60"
+            android:maxLines="1"
+            android:nextFocusDown="@+id/et_district"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/til_district"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/til_present_address"
+        android:layout_marginTop="@dimen/field_margin_top">
+
+        <EditText
+            android:id="@+id/et_district"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:digits="1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.,/- "
+            android:hint="district"
+            android:inputType="textCapWords|textVisiblePassword"
+            android:maxLength="60"
+            android:maxLines="1"
+            android:nextFocusDown="@+id/et_district"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginTop="@dimen/register_nav_margin_top"
+        android:text="Next"/>
+</LinearLayout>

@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.facebook.FacebookSdk;
 import com.letzunite.applabs.R;
 import com.letzunite.applabs.constants.Fragments;
 import com.letzunite.applabs.fragments.IActivityFragmentInteraction;
@@ -19,6 +20,7 @@ public class LoginActivity extends AppCompatActivity implements IActivityFragmen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.activity_login);
         addReplaceFragment(null, new LoginFragment(), false, false, null);
     }

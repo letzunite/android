@@ -9,7 +9,7 @@ package com.letzunite.applabs.logger;
 public enum LoggerEnable implements ILoggerActivator {
     LoginAct {
         public boolean isEnabled() {
-            return false;
+            return true;
         }
     },
     LoginFragment {
@@ -17,73 +17,27 @@ public enum LoggerEnable implements ILoggerActivator {
             return true;
         }
     },
-    OTPFragment {
-        public boolean isEnabled() {
-            return false;
-        }
-    },
-    HomeAct {
-        @Override
-        public boolean isEnabled() {
-            return false;
-        }
-    },
-    NavDrawAdapter {
-        @Override
-        public boolean isEnabled() {
-            return false;
-        }
-    },
-    StoreListFragment {
-        @Override
-        public boolean isEnabled() {
-            return false;
-        }
-    },
-    StoreListAdapter {
-        @Override
-        public boolean isEnabled() {
-            return false;
-        }
-    },
-    StoreFragment {
-        @Override
-        public boolean isEnabled() {
-            return false;
-        }
-    },
-    DayStoreListAdapter {
-        @Override
-        public boolean isEnabled() {
-            return false;
-        }
-    },
-    ElementListFragment {
-        @Override
+    MainAct {
         public boolean isEnabled() {
             return true;
         }
     },
-    ElementListAdapter {
-        @Override
+    ParentRegisterFragment {
         public boolean isEnabled() {
             return true;
         }
     },
-    SearchListAda {
-        @Override
+    Register1Fragment {
         public boolean isEnabled() {
             return true;
         }
     },
-    SearchAct {
-        @Override
+    Register2Fragment {
         public boolean isEnabled() {
             return true;
         }
     },
-    SMSReceiver {
-        @Override
+    Register3Fragment {
         public boolean isEnabled() {
             return true;
         }

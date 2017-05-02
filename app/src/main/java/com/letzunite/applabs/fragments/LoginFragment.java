@@ -36,6 +36,7 @@ import com.google.android.gms.common.api.Status;
 import com.letzunite.applabs.R;
 import com.letzunite.applabs.constants.Config;
 import com.letzunite.applabs.constants.Constants;
+import com.letzunite.applabs.constants.Fragments;
 import com.letzunite.applabs.logger.Logger;
 import com.letzunite.applabs.logger.LoggerEnable;
 import com.letzunite.applabs.utils.AppUtils;
@@ -260,7 +261,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener, Goo
                 case R.id.btn_sign_up:
                     message = validateDetails();
                     if (AppUtils.isStringEmpty(message)) {
-
+                        listener.onInteraction(Fragments.LOGIN_FRAGMENT, null, null);
                     } else {
                         // SnackBar Message
                         Snackbar snackbar = Snackbar
@@ -271,7 +272,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener, Goo
                 case R.id.btn_sign_in:
                     message = validateDetails();
                     if (AppUtils.isStringEmpty(message)) {
-
+                        listener.onInteraction(Fragments.LOGIN_FRAGMENT, null, null);
                     } else {
                         // SnackBar Message
                         Snackbar snackbar = Snackbar

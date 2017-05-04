@@ -42,6 +42,6 @@ dependencies {
     compile 'com.pacioianu.david:ink-page-indicator:1.2.0'
 }
 
-// Adding this plugin after dependencies, otherwise it doesnt work.
+// Adding this plugin after dependencies, otherwise it doesn't work.
 apply plugin: 'com.google.gms.google-services'
 

@@ -1,19 +1,32 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             android:padding="30dp"
-             tools:context="com.letzunite.applabs.fragments.ParentRegisterFragment">
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/monte_carlo_blue"
+    tools:context="com.letzunite.applabs.fragments.ParentRegisterFragment">
+
+    <TextView
+        android:id="@+id/tv_register_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="Your profile is incomplete.\nKindly complete it, which will help us to serve you better."
+        android:textColor="@color/profile_font_color"
+        android:textSize="20sp"/>
 
     <com.letzunite.applabs.customviews.CustomViewPager
         android:id="@+id/pager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_below="@id/tv_register_title"
+        android:layout_marginTop="40dp"/>
 
     <com.pixelcan.inkpageindicator.InkPageIndicator
         android:id="@+id/indicator"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/tv_register_title"
         android:layout_marginTop="20dp"/>
 
-</FrameLayout>
+</RelativeLayout>

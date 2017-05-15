@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/french_rose_red"
     android:orientation="vertical"
     android:padding="20dp"
     tools:context="com.letzunite.applabs.fragments.Profile1Fragment">
@@ -12,8 +11,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Gender"
-        android:textColor="@color/black"
-        android:textSize="17sp"/>
+        android:textColor="@color/profile_font_color"
+        android:textSize="17sp"
+        android:textStyle="bold"/>
 
     <RadioGroup
         android:id="@+id/rg_gender"
@@ -25,17 +25,20 @@
             android:id="@+id/rb_male"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Male"/>
+            android:text="Male"
+            android:textColor="@color/profile_font_color"/>
         <RadioButton
             android:id="@+id/rb_female"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Female"/>
+            android:text="Female"
+            android:textColor="@color/profile_font_color"/>
         <RadioButton
             android:id="@+id/rb_other"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Other"/>
+            android:text="Other"
+            android:textColor="@color/profile_font_color"/>
     </RadioGroup>
 
     <android.support.design.widget.TextInputLayout
@@ -52,7 +55,9 @@
             android:focusableInTouchMode="false"
             android:hint="Date of Birth *"
             android:imeOptions="actionNext"
-            android:maxLines="1"/>
+            android:maxLines="1"
+            android:textColor="@color/profile_font_color"
+            android:textColorHint="@color/profile_font_color"/>
     </android.support.design.widget.TextInputLayout>
 
     <RelativeLayout
@@ -66,8 +71,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/field_margin_top"
             android:text="Height"
-            android:textColor="@color/black"
-            android:textSize="17sp"/>
+            android:textColor="@color/profile_font_color"
+            android:textSize="17sp"
+            android:textStyle="bold"/>
 
         <Spinner
             android:id="@+id/spinner_feet"
@@ -75,7 +81,8 @@
             android:layout_height="wrap_content"
             android:layout_alignTop="@id/tv_height"
             android:layout_marginLeft="20dp"
-            android:layout_toRightOf="@id/tv_height"/>
+            android:layout_toRightOf="@id/tv_height"
+            android:entries="@array/feet"/>
 
         <Spinner
             android:id="@+id/spinner_inch"
@@ -83,7 +90,8 @@
             android:layout_height="wrap_content"
             android:layout_alignTop="@id/tv_height"
             android:layout_marginLeft="20dp"
-            android:layout_toRightOf="@id/spinner_feet"/>
+            android:layout_toRightOf="@id/spinner_feet"
+            android:entries="@array/inches"/>
 
     </RelativeLayout>
 
@@ -102,7 +110,9 @@
             android:imeOptions="actionNext"
             android:inputType="number"
             android:maxLength="3"
-            android:maxLines="1"/>
+            android:maxLines="1"
+            android:textColor="@color/profile_font_color"
+            android:textColorHint="@color/profile_font_color"/>
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -120,7 +130,9 @@
             android:hint="Last Measured HB (gm/dL)"
             android:inputType="number"
             android:maxLength="2"
-            android:maxLines="1"/>
+            android:maxLines="1"
+            android:textColor="@color/profile_font_color"
+            android:textColorHint="@color/profile_font_color"/>
     </android.support.design.widget.TextInputLayout>
 
     <Button
@@ -129,5 +141,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end"
         android:layout_marginTop="@dimen/register_nav_margin_top"
-        android:text="Next"/>
+        android:background="@android:color/transparent"
+        android:text="Next"
+        android:textAllCaps="false"
+        android:textColor="@color/profile_font_color"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
 </LinearLayout>

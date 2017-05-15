@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import com.letzunite.applabs.R;
 import com.letzunite.applabs.constants.Config;
 import com.letzunite.applabs.constants.Fragments;
-import com.letzunite.applabs.customviews.CustomViewPager;
 import com.letzunite.applabs.logger.Logger;
 import com.letzunite.applabs.logger.LoggerEnable;
 import com.pixelcan.inkpageindicator.InkPageIndicator;
@@ -41,7 +40,7 @@ public class ParentRegisterFragment extends Fragment implements IActivityFragmen
         InkPageIndicator indicator = (InkPageIndicator) currentView.findViewById(R.id.indicator);
         viewPager = (ViewPager) currentView.findViewById(R.id.pager);
         viewPager.setAdapter(new RegisterPagerAdapter(getChildFragmentManager()));
-        ((CustomViewPager) viewPager).setSwipeEnabled(false);
+//        ((CustomViewPager) viewPager).setSwipeEnabled(false);
         indicator.setViewPager(viewPager);
 
         return currentView;

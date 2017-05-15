@@ -93,8 +93,8 @@ public class Profile2Fragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_next:
-                String occupation = ((EditText) currentView.findViewById(R.id.occupation)).getText().toString();
-                Logger.logD(Config.TAG, CLASS_NAME, " >> onClick >> Occupation: " + occupation);
+//                String occupation = ((EditText) currentView.findViewById(R.id.occupation)).getText().toString();
+//                Logger.logD(Config.TAG, CLASS_NAME, " >> onClick >> Occupation: " + occupation);
                 listener.onInteraction(Fragments.REGISTER2_FRAGMENT, null, null);
                 break;
         }

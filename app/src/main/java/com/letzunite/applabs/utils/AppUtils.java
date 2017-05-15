@@ -1,9 +1,14 @@
 package com.letzunite.applabs.utils;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Build;
+import android.util.Log;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 
+import com.letzunite.applabs.constants.Config;
 import com.letzunite.applabs.logger.LoggerEnable;
 
 import java.text.SimpleDateFormat;
@@ -76,5 +81,17 @@ public class AppUtils {
             dateFormat = new SimpleDateFormat("dd MMM yy");
         }
         return dateFormat.format(new Date(time));
+    }
+
+    public static void hideKeyboard(Context context) {
+        try {
+            View view = ((Activity) context).getCurrentFocus();
+            if (view != null) {
+                InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+            }
+        } catch (Exception e) {
+            Log.e(Config.TAG, "Exception from hideKeyboard: " + e);
+        }
     }
 }

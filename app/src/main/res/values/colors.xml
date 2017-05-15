@@ -18,4 +18,11 @@
     <!-- Red -->
     <color name="french_rose_red">#F64C73</color>
 
+    <!-- Blue -->
+    <color name="bondi_blue">#0096A6</color>
+    <color name="monte_carlo_blue">#80CAD2</color>
+
+    <color name="profile_font_color">@color/black</color>
+
+
 </resources>
